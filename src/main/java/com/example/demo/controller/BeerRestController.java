@@ -2,6 +2,7 @@ package com.example.demo.controller;
 
 import com.example.demo.domain.Beer;
 import com.example.demo.repository.BeerRepository;
+import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RestController;
 
@@ -19,6 +20,7 @@ public class BeerRestController {
 
 
     @GetMapping("/beers")
+    @CrossOrigin(origins = {"http://localhost:8100","file://"})
     private Collection<Beer> getBeers(){
         return this.repository.findAll();
     }
